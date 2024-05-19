@@ -48,14 +48,18 @@ Llama 2 requires a paid Hugging Face API key to use, in addition to permission t
 ### Unofficial APIs
 Copilot and Gemini both use unofficial APIs, so you need to provide browser profiles and Microsoft/Google accounts to use them.
 
-By default the library uses all Edge browser profiles. You can customise this by passing a list of cookie files to the `Copilot` and `Gemini` classes.
+By default the library uses the Edge web browser with all Edge profiles, except the default profile. You can customise this by passing a custom `CookieManager` object to unofficial API classes.
 
-You should log into Copilot and Gemini using a Microsoft and Google account respectively in an Edge profile and use the chatbot in the browser once. This will create a session that can be used by the library. Roughly 5 accounts in 5 separate Edge profiles are needed to avoid per-account rate limiting.
+Edge profiles can be created by opening Edge, clicking on the profile icon, and then clicking "Setup new personal profile". You should then log into Copilot and Gemini using a Microsoft and Google account respectively in each Edge profile and use the chatbots in the browser to create a session that can be used by the library.
  
 > [!WARNING]
 > It's not recommended to use your personal Microsoft or Google account for this purpose, as it may be banned.
 
-You may have to run Edge from terminal with the optional argument ```--disable-features=LockProfileCookieDatabase``` to allow the library to access the cookies while the browser is running.
+> [!TIP]
+> Experience shows that at least 5 accounts in 5 Edge profiles are needed to avoid per-account rate limiting if running 24/7, though this is subject to change.
+
+> [!TIP]
+> You may have to run Edge from terminal with the optional argument ```--disable-features=LockProfileCookieDatabase``` to allow the library to access the cookies while the browser is running.
 
 ## Usage
 
