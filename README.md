@@ -123,7 +123,6 @@ Once querying is complete, the files are combined into a single file by default 
         "temperature": 1.0,
         "response": "The best color is subjective and varies from person to person..."
     },
-    ...
 ]
 ```
 
