@@ -12,13 +12,16 @@ class CookieManager:
         self.domain_name = domain_name
         self.prefix = prefix
         self.browser = browser
-        self.cookie_files = cookie_files if cookie_files else generate_edge_cookie_files()
+        if browser == browser_cookie3.edge and not cookie_files:
+            self.cookie_files = generate_edge_cookie_files()
+        else:
+            self.cookie_files = cookie_files
         self.current_cookie_file = self.cookie_files[0] if self.cookie_files else None
 
     def get_cookie_dict(self) -> dict:
         """Get cookies from the specified browser for the given domain and optional prefix."""
         if not self.current_cookie_file:
-            raise Exception("No cookie file specified.")
+            raise Exception("No current cookie file.")
 
         cookie_dict = {
             cookie.name: cookie.value
@@ -36,7 +39,7 @@ class CookieManager:
         """Get cookies from the specified browser for the given domain and optional prefix as a CookieJar.
         """
         if not self.current_cookie_file:
-            raise Exception("No cookie file specified.")
+            raise Exception("No current cookie file.")
 
         cookie_jar = CookieJar()
         for cookie in self.browser(domain_name=self.domain_name, cookie_file=self.current_cookie_file):
@@ -48,7 +51,7 @@ class CookieManager:
         """Get cookies from the specified browser for the given domain and optional prefix as a list.
         """
         if not self.current_cookie_file:
-            raise Exception("No cookie file specified.")
+            raise Exception("No current cookie file.")
 
         cookie_list = [
             {
