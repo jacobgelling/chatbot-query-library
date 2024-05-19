@@ -3,7 +3,7 @@ Python library for easy querying of popular chatbots, including Copilot, Gemini,
 
 This library also has the ability to query multiple chatbots, with multiple prompts, multiple times, in parallel and save responses to a file.
 
-> **Note**
+> [!NOTE]
 > This library is intended for educational and research purposes only. You should respect the terms of service of the chatbot providers.
 
 This library was written as part of my master thesis, "Evaluating Biases in Conversational AI Systems" at the University of Zurich, and used in an upcoming publication. The source code is released under the MIT license.
@@ -52,7 +52,7 @@ By default the library uses all Edge browser profiles. You can customise this by
 
 You should log into Copilot and Gemini using a Microsoft and Google account respectively in an Edge profile and use the chatbot in the browser once. This will create a session that can be used by the library. Roughly 5 accounts in 5 separate Edge profiles are needed to avoid per-account rate limiting.
  
-> **Warning**
+> [!WARNING]
 > It's not recommended to use your personal Microsoft or Google account for this purpose, as it may be banned.
 
 You may have to run Edge from terminal with the optional argument ```--disable-features=LockProfileCookieDatabase``` to allow the library to access the cookies while the browser is running.
@@ -109,7 +109,7 @@ multi_chatbot.query()
 
 During querying, logs and responses are saved to files by default in the `temp` directory. The filenames correspond to the chatbot names.
 
-> **Note**
+> [!TIP]
 > If performing many queries with unofficial APIs, it's recommended to periodically check the logs in the `temp` directory to ensure the queries are running correctly. It's also recommended to periodically perform a query in the used browser profiles to refresh the session and complete any given captchas.
 
 Once querying is complete, the files are combined into a single file by default in the `output` directory, with the following structure:
