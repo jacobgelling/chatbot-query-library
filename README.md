@@ -130,7 +130,7 @@ Once querying is complete, the files are combined into a single file by default 
 ]
 ```
 
-### Functions, Classes, Parameters and Defaults
+### Classes and Parameters
 
 #### cql.chatbot
 * Copilot
@@ -152,7 +152,7 @@ Once querying is complete, the files are combined into a single file by default 
     * top_p: float = 0.9
     * top_k: int = 0
 * OpenAI
-   * api_key: str
+    * api_key: str
     * name: str = "GPT-3.5"
     * model: str = "gpt-3.5-turbo"
     * timeout: int = 60
